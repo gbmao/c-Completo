@@ -7,7 +7,7 @@ public class Account
 {
     private string Name { get; set; }
 
-    private int AccountNumber { get; set; }
+    public int AccountNumber { get; private set; }
 
     private double Balance { get; set; }
 
@@ -15,6 +15,7 @@ public class Account
     {
         Name = name;
         AccountNumber = accountNumber;
+        Balance = 0;
     }
 
     public void AddBalance(double value)
@@ -25,6 +26,20 @@ public class Account
     public void RemoveBalance(double value)
     {
         Balance -= value;
+    }
+
+    public void ChangeName(string newName)
+    {
+        Name = newName;
+    }
+
+    
+
+    public override string ToString()
+    {
+        return "Conta " + AccountNumber +
+        ", Titular: " + Name +
+        ", Saldo: $ " + Balance.ToString("F2");
     }
 
 }
