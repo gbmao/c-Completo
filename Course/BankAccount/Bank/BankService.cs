@@ -4,10 +4,10 @@ namespace Bank;
 
 public class BankService
 {
-    private Dictionary<int, Account> Accounts { get;  set; } = new();
+    private Dictionary<int, Account> Accounts { get; set; } = new();
     public Account NewAccount(string name, int accountNumber)
     {
-        Account newAccount =  new(name, accountNumber);
+        Account newAccount = new(name, accountNumber);
         Accounts.Add(newAccount.AccountNumber, newAccount);
         return Accounts.GetValueOrDefault(newAccount.AccountNumber);
     }
@@ -23,7 +23,8 @@ public class BankService
         return true;
     }
 
-        public bool RemoveBalance(int accountNumber, double value)
+
+    public bool RemoveBalance(int accountNumber, double value)
     {
         Accounts.GetValueOrDefault(accountNumber).RemoveBalance(value);
         // fee
